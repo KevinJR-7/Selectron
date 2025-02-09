@@ -30,11 +30,14 @@ uint8_t coin_ident(uint8_t c_500_gpio, uint8_t c_1000_gpio, uint8_t c_out_gpio)
     uint32_t c_out = gpio_get(c_out_gpio);
     while(c_500 && c_out)
     { 
-        cnt += cnt; 
+        cnt += 1; 
         c_500 = gpio_get(c_500_gpio);
         c_out = gpio_get(c_out_gpio);
-        //if((cnt%125000000000) == 0){ printf("500: %d \n", c_500); printf("out: %d \n", c_out); }
+        //if((cnt) == 125000000){ printf("500: %d \n", c_500); printf("out: %d \n", c_out); }
+        if(cnt >= 1250000){ return 0; }
+        //printf("cnt: %d \n", cnt);
     }
+    //printf("Cout: %d\n,", c_out);
     if(!c_out){ return 0; } //retorno de 0 implica moneda invalida
     else
     {
@@ -68,6 +71,8 @@ uint8_t coin_ident(uint8_t c_500_gpio, uint8_t c_1000_gpio, uint8_t c_out_gpio)
 int8_t coin_change(uint8_t price)
 {
     int8_t change = -1;
+    
+
     if(price <= total_coin)    //revisa que no falte plata del usuario
     {
         change = total_coin - price;
@@ -113,6 +118,8 @@ void coin_change_deliver(uint8_t change, float top)
         coin_500_num -= 1;
         printf("change_5: %d \n", change_5);
     }
+    sleep_ms(3000);
+
 }
 
 //funcion para cambiar el camino por el que se dijiren las monedas

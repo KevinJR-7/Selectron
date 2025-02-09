@@ -10,7 +10,7 @@
 void gpio_callback(uint gpio, uint32_t events) {
     if (events & GPIO_IRQ_EDGE_FALL) { // Detectar el flanco de bajada
                                    // Función de manejo
-        //printf("Interrupción detectada en GPI %d\n", gpio);
+        printf("Infrarrojo %d\n", gpio);
         IRQflags.OutProduct = true;
     }
 }
@@ -77,40 +77,40 @@ void setup_pwm(uint gpio, float frequency, float duty_cycle) {
 
 // Función para cambiar el ciclo de trabajo dinámicamente
 void set_duty_cycle(uint gpio, float duty_cycle) {
-    printf("\n--- set_duty_cycle() ---\n");
-    printf("GPIO: %d\n", gpio);
-    printf("Duty cycle recibido: %.2f%%\n", duty_cycle * 100);
+    //printf("\n--- set_duty_cycle() ---\n");
+    //printf("GPIO: %d\n", gpio);
+    //printf("Duty cycle recibido: %.2f%%\n", duty_cycle * 100);
     wrap = 12499;
     uint slice_num = pwm_gpio_to_slice_num(gpio);
     uint channel = pwm_gpio_to_channel(gpio);
-    printf("Slice asignado: %d\n", slice_num);
-    printf("Canal asignado: %d\n", channel);
+    //printf("Slice asignado: %d\n", slice_num);
+    //printf("Canal asignado: %d\n", channel);
 
-    printf("Valor actual de wrap: %d\n", wrap);  // Imprimir el valor de wrap
+    //printf("Valor actual de wrap: %d\n", wrap);  // Imprimir el valor de wrap
 
     uint32_t level = (uint32_t)(duty_cycle * wrap);  // Convertir duty_cycle a nivel PWM
-    printf("Nivel PWM calculado: %d\n", level);
+    //printf("Nivel PWM calculado: %d\n", level);
 
     // Configurar el nivel PWM
     pwm_set_chan_level(slice_num, channel, level);
-    printf("PWM actualizado en GPIO %d\n", gpio);
+    //printf("PWM actualizado en GPIO %d\n", gpio);
 }
 
 void IRQ_init_outproduct() {
     gpio_init(INTERRUPT_PIN);                     // Inicializar el GPIO
     gpio_set_dir(INTERRUPT_PIN, GPIO_IN);         // Configurarlo como entrada
-    gpio_pull_down(INTERRUPT_PIN);                  // Activar resistencia pull-up
+    //gpio_pull_down(INTERRUPT_PIN);                  // Activar resistencia pull-up
 
     // Configurar la interrupción en el GPIO
-    gpio_set_irq_enabled_with_callback(
-        INTERRUPT_PIN,                            // GPIO a configurar
+    /* gpio_set_irq_enabled_with_callback(
+        INTERRUPT_PIN,                            // GPIO a configura
         GPIO_IRQ_EDGE_FALL,                       // Interrupción por flanco de bajada
         true,                                     // Habilitar interrupción
         gpio_callback                             // Función de manejo
-    );
+    ); */
 }
 
-void Irq_enable(){
+/* void Irq_enable(){
     gpio_set_irq_enabled_with_callback(
         INTERRUPT_PIN,                            // GPIO a configurar
         GPIO_IRQ_EDGE_FALL,                       // Interrupción por flanco de bajada
@@ -126,5 +126,5 @@ void Irq_disable(){
         false,                                     // Habilitar interrupción
         gpio_callback                             // Función de manejo
     );
-}
+} */
 

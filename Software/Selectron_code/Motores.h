@@ -16,7 +16,7 @@
 #define MOTOR4_PIN 5  // GPIO para el motor 4
 
 // Definición de pin para la interrupción
-#define INTERRUPT_PIN 6
+#define INTERRUPT_PIN 10
 
 
 /**
@@ -49,6 +49,6 @@ void IRQ_init_outproduct();
  */
 void gpio_callback(uint gpio, uint32_t events);
 
-void Irq_enable();
-void Irq_disable();
+//void Irq_enable();
+//void Irq_disable();
 #endif /* _MOTORES_H */
