@@ -84,20 +84,3 @@ void init_gpios(){
 }
 
 
-/*int main() {
-    init_gpios();
-    
-    // Initialize LCD
-    lcd_init();
-
-    // Set cursor to first row, first column
-    lcd_set_cursor(0, 0);
-    lcd_print("Hello, World!");
-
-    // Set cursor to second row, first column
-    lcd_set_cursor(1, 0);
-    lcd_print("Raspberry Pi Pico");
-    while (1) {
-      
-    }
-}*/
