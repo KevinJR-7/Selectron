@@ -6,3 +6,5 @@ Video del que se basa el lector de monedas:  https://www.youtube.com/watch?v=Wp4
 Video del que se basa la transformación de movimiento circular a lineal usado en el dispensador de monedas: https://youtu.be/Gd_4fY_xZ48?si=oINU5-k0jx2rOFe_
 
 Codigo de manejo de la pantalla 16x2 lcd con I2C github oficial raspberry pi pico: https://github.com/raspberrypi/pico-examples/blob/master/i2c/lcd_1602_i2c/lcd_1602_i2c.c
+
+Datasheet de la raspberry pi pico: https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
