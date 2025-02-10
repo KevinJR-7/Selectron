@@ -7,4 +7,4 @@ Video del que se basa la transformación de movimiento circular a lineal usado e
 
 Codigo de manejo de la pantalla 16x2 lcd con I2C github oficial raspberry pi pico: https://github.com/raspberrypi/pico-examples/blob/master/i2c/lcd_1602_i2c/lcd_1602_i2c.c
 
-Datasheet de la raspberry pi pico: https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
+SDK para C de la raspberry pi pico : https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
